@@ -6,12 +6,12 @@
 #т. е не через img = Image(), а через фабричный метод или фабрику, например factory.create_tag(name).»
 
 
-
+#рожитель
 class Tag(object):
     def show(self):
-        print('<tag></tag>')
+        pass
 
-
+#тег изображение
 class Image(Tag):
     def show(self):
         print('<img></img>')
@@ -19,7 +19,7 @@ class Image(Tag):
     def shatr(self):
         print('<img src=""></img>')
 
-
+#текст
 class Text(Tag):
     def show(self):
         print('<p></p>')
@@ -27,6 +27,7 @@ class Text(Tag):
     def shatr(self):
         print('<p align=""></p>')
 
+#ссылка
 class Link(Tag):
     def show(self):
         print('<a></a>')
@@ -34,6 +35,7 @@ class Link(Tag):
     def shatr(self):
         print('<a href=""></a>')
 
+#
 class Input(Tag):
     def show(self):
         print('<input></input>')
@@ -41,13 +43,10 @@ class Input(Tag):
     def shatr(self):
         print('<input value=""></input>')
 
-class HTML(object):
-    def gethtml(self, type_):
-        # параметризованный фабричный метод `create_document`
-        raise NotImplementedError('<tag></tag>')
 
 
-class CreateTag(HTML):
+
+class CreateTag:
     def gethtml(self, type_):
         if type_ == 'image' or type_ == 'src':
             return Image()
